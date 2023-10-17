@@ -2,16 +2,16 @@ import axios from "axios";
 import { User } from "../types/user";
 import { useEffect, useState } from "react";
 
-const useGetUsers = () => {
-    const [users, setUsers] = useState<User[]>([]);
+const useGetUser = (userId: string | string[]) => {
+    const [user, setUser] = useState<User>(null);
     const [error, setError] = useState<string>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        const fetchUsers = async () => {
+        const fetchUser = async () => {
             try {
-                const users = await axios.get('http://localhost:3005/users');
-                setUsers(users.data);
+                const user = await axios.get(`http://localhost:3005/users/${userId}`);
+                setUser(user.data);
                 setIsLoading(false);
             } catch(error) {
                 setError(error);
@@ -19,10 +19,10 @@ const useGetUsers = () => {
             }
         }
 
-        fetchUsers();
+        fetchUser();
     }, [])
 
-    return { users, error, isLoading};
+    return { user, error, isLoading};
 }
 
-export default useGetUsers;
+export default useGetUser;
