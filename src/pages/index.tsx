@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Logo from '../assets/lbc-logo.webp'
 import styles from '../styles/Home.module.css'
+import ContactList from '../components/ContactList'
 
 const Home = ():ReactElement => {
   const year = new Date().getFullYear()
@@ -15,7 +16,7 @@ const Home = ():ReactElement => {
       </Head>
       <Image src={Logo} alt="Leboncoin Frontend Team" width={400} height={125} />
       <main className={styles.main}>
-        <p className="text-3xl">tailwind is working</p>
+        <ContactList/>
       </main>
 
       <footer className={styles.footer}>
