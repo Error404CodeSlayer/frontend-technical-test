@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import MessagesList from "../../components/messages/MessagesList";
+import MessagesComponent from "../../components/messages/MessagesComponent";
 
 const Conversation = () => {
     const router = useRouter();
@@ -7,7 +7,7 @@ const Conversation = () => {
 
     return (
         <div className="flex min-h-screen flex-col justify-center px-2 min-w-[250px]">
-            <MessagesList conversationId={conversationId}/>
+            <MessagesComponent conversationId={conversationId}/>
         </div>
     )
 }

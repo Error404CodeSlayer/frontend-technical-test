@@ -1,6 +1,6 @@
 import axios from "axios";
 import { User } from "../types/user";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 const useGetUser = (userId: string | string[]) => {
     const [user, setUser] = useState<User>(null);
@@ -8,19 +8,21 @@ const useGetUser = (userId: string | string[]) => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const user = await axios.get(`http://localhost:3005/users/${userId}`);
-                setUser(user.data);
-                setIsLoading(false);
-            } catch(error) {
-                setError(error);
-                setIsLoading(false);
+        if (userId) {
+            const fetchUser = async () => {
+                try {
+                    const user = await axios.get(`http://localhost:3005/users/${userId}`);
+                    setUser(user.data);
+                    setIsLoading(false);
+                } catch(error) {
+                    setError(error);
+                    setIsLoading(false);
+                }
             }
+    
+            fetchUser();
         }
-
-        fetchUser();
-    }, [])
+    }, [userId])
 
     return { user, error, isLoading};
 }
