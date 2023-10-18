@@ -1,19 +1,17 @@
 import type { ReactElement } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import ConversationComponent from '../components/conversation/ConversationComponent'
-import { getLoggedUserId } from '../utils/getLoggedUserId'
+import ConversationContainer from '../components/conversation/ConversationContainer'
 
 const Home = ():ReactElement => {
-  const userId: number = getLoggedUserId();
   
   return (
-    <div className={styles.container}>
+    <div className="flex min-h-screen flex-col justify-center px-2 min-w-[250px]">
       <Head>
         <title>Frontend Technical test - Leboncoin</title>
         <meta name="description" content="Frontend exercise for developpers who want to join us on leboncoin.fr"></meta>
       </Head>
-      <ConversationComponent userId={userId.toString()}/>
+      <ConversationContainer/>
     </div>
   )
 }

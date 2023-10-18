@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 const useGetMessages = (conversationId: string | string[]) => {
     const [messages, setMessages] = useState<Message[]>([]);
-    const [err, setError] = useState<string>(null);
-    const [loading, setIsLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         const fetchConversation = async () => {
@@ -22,7 +22,7 @@ const useGetMessages = (conversationId: string | string[]) => {
         fetchConversation();
     }, [])
 
-    return {messages, loading, err};
+    return {messages, isLoading, error};
 }
 
 export default useGetMessages;
