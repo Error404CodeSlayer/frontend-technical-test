@@ -7,7 +7,7 @@ const Conversation = () => {
     const conversationId = router.query.conversationId;
 
     return (
-        <div className="flex min-h-screen flex-col justify-center px-2 min-w-[250px]">
+        <div className="flex min-h-screen flex-col justify-center min-w-[250px]">
             <Head>
                 <title>Frontend Technical test - Leboncoin</title>
                 <meta name="description" content="Frontend exercise for developpers who want to join us on leboncoin.fr"></meta>

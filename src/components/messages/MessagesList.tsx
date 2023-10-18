@@ -1,13 +1,17 @@
 import { getLoggedUserId } from "../../utils/getLoggedUserId";
 import MessageItem from "./MessagesItem";
 import useGetMessages from "../../hooks/useGetMessages";
+import { useEffect } from "react";
 
 interface MessageListProps {
   conversationId: string | string[];
+  message:string;
 }
 
-const MessagesList: React.FC<MessageListProps> = ({ conversationId }) => {
-  const { messages, isLoading, error } = useGetMessages(conversationId);
+const MessagesList: React.FC<MessageListProps> = ({ conversationId, message }) => {
+  
+  const { messages, isLoading, error } = useGetMessages(conversationId, message);
+
   const userId = getLoggedUserId();
 
   if (isLoading) {
