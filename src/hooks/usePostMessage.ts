@@ -6,9 +6,9 @@ const usePostMessages = (
   dataMessage: string,
   conversationId: string | string[]
 ) => {
-  const [value, setValue] = useState<string>(null);
-  const [err, setError] = useState<string>(null);
-  const [loading, setIsLoading] = useState<boolean>(true);
+  const [messageSend, setMessageSend] = useState<string>(null);
+  const [error, setError] = useState<string>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchConversation = async () => {
@@ -19,7 +19,7 @@ const usePostMessages = (
             { body: dataMessage, timestamp: Date.now(), conversationId: conversationId, authorId: getLoggedUserId()}
           );
 
-          setValue(conversation.data);
+          setMessageSend(conversation.data);
         }
         setIsLoading(false);
       } catch (error) { 
@@ -31,7 +31,7 @@ const usePostMessages = (
     fetchConversation();
   }, [conversationId, dataMessage]);
 
-  return { value, loading, err };
+  return { messageSend, isLoading, error };
 };
 
 export default usePostMessages;

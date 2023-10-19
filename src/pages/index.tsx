@@ -8,8 +8,8 @@ const Home = ():ReactElement => {
   return (
     <div className="flex min-h-screen flex-col justify-center px-2 min-w-[250px]">
       <Head>
-        <title>Frontend Technical test - Leboncoin</title>
-        <meta name="description" content="Frontend exercise for developpers who want to join us on leboncoin.fr"></meta>
+        <title>Liste des Conversations - Leboncoin</title>
+        <meta name="description" content="Liste des conversations sur leboncoin.fr"></meta>
       </Head>
       <ConversationContainer/>
     </div>

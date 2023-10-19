@@ -10,7 +10,7 @@ interface MessageInputProps {
 const MessageInput: React.FC<MessageInputProps> = ({ conversationId, onMessageChange }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState<string>(null);
-  const {value, loading, err} = usePostMessages(message, conversationId);
+  const {messageSend, isLoading, error} = usePostMessages(message, conversationId);
 
   const sendMessage = () => {
     const newMessage = inputRef.current.value;
@@ -19,14 +19,14 @@ const MessageInput: React.FC<MessageInputProps> = ({ conversationId, onMessageCh
     inputRef.current.value = "";
   }
 
-  if (loading) {
+  if (isLoading) {
     return (
       <p>Loading...</p>
     );
   }
 
-  if (err) {
-    <p> error !</p>
+  if (!isLoading && error) {
+    <p>Nous rencontrons actuellement un problème technique nous serons de retour dans quelques instants.</p>
   }
 
   return (
