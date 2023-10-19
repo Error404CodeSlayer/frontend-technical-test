@@ -15,7 +15,7 @@ const ConversationContainer = () => {
   }
 
   if (!isLoading && error) {
-    return <p>Nous rencontrons actuellement un problème technique nous serons de retour dans quelques instants.</p>;
+    return <p className="m-4">Nous rencontrons actuellement un problème technique nous serons de retour dans quelques instants.</p>;
   }
 
   return (

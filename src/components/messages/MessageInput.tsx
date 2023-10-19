@@ -26,7 +26,7 @@ const MessageInput: React.FC<MessageInputProps> = ({ conversationId, onMessageCh
   }
 
   if (!isLoading && error) {
-    <p>Nous rencontrons actuellement un problème technique nous serons de retour dans quelques instants.</p>
+    <p className="m-4">Nous rencontrons actuellement un problème technique nous serons de retour dans quelques instants.</p>
   }
 
   return (
