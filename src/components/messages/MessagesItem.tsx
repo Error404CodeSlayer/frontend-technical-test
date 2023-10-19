@@ -13,11 +13,11 @@ const MessageItem: React.FC<MessageItemProps> = ({ message}) => {
   
   return (
     <div className={isUserAuthor ? "w-full flex flex-col items-end" : "w-full flex flex-col items-start"}>
-      <div className="max-w-[250px]">
+      <div className="max-w-[225px]">
         <div className={isUserAuthor ? "p-4 my-4 rounded-2xl bg-orange-400" : "p-4 my-4 rounded-2xl bg-orange-50"}>
           <p className={isUserAuthor ? "text-white break-words" : "text-gray-400 break-words"}>{message.body}</p>
         </div>
-        <p className={isUserAuthor ? "text-right mr-4" : "text-left ml-4"}>{formattedDate}</p>
+        <p className={isUserAuthor ? "text-right mr-1" : "text-left ml-1"}>{formattedDate}</p>
       </div>
     </div>
   );
